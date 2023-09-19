@@ -62,6 +62,7 @@ flutter:
   assets:
     - images/
     - images/men/
+    - images/try/
     - images/inapp/
     - images/women/
     - images/shoes/
@@ -97,3 +98,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Acme
+      fonts:
+        - asset: fonts/Acme-Regular.ttf

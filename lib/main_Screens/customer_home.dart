@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:multistore/main_Screens/category.dart';
 import 'package:multistore/main_Screens/home.dart';
+import 'package:multistore/main_Screens/stores.dart';
 
 class CustomerHomeScreen extends StatefulWidget {
   const CustomerHomeScreen({super.key});
@@ -14,9 +15,7 @@ class _CustomerHomeScreenState extends State<CustomerHomeScreen> {
   final List<Widget> _tabs = const [
     HomeScreen(),
     CategoryScreen(),
-    Center(
-      child: Text('stories screen'),
-    ),
+    StoresScreen(),
     Center(
       child: Text('cart screen'),
     ),

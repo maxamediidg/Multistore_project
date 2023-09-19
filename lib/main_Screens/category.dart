@@ -1,4 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:multistore/Category/Home_Garden_categ.dart';
+import 'package:multistore/Category/Men_categ.dart';
+import 'package:multistore/Category/accessories_categ.dart';
+import 'package:multistore/Category/bags_categ.dart';
+import 'package:multistore/Category/beauty_categ.dart';
+import 'package:multistore/Category/electronic_categ.dart';
+import 'package:multistore/Category/kids_categ.dart';
+import 'package:multistore/Category/shoes_categ.dart';
+import 'package:multistore/Category/women_categ.dart';
 import 'package:multistore/widgets/Fake_search.dart';
 
 List<ItemData> items = [
@@ -21,6 +30,19 @@ class CategoryScreen extends StatefulWidget {
 }
 
 class _CategoryScreenState extends State<CategoryScreen> {
+  final PageController _pageController = PageController();
+
+  @override
+  void initState() {
+    for (var element in items) {
+      element.isSelected = false;
+    }
+    setState(() {
+      items[0].isSelected = true;
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     var Size = MediaQuery.of(context).size;
@@ -43,12 +65,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                setState(() {
-                  for (var element in items) {
-                    element.isSelected = false;
-                  }
-                  items[index].isSelected = true;
-                });
+                _pageController.animateToPage(index,
+                    duration: const Duration(microseconds: 100),
+                    curve: Curves.bounceInOut);
               },
               child: Container(
                   color: items[index].isSelected == true
@@ -66,6 +85,29 @@ class _CategoryScreenState extends State<CategoryScreen> {
       height: size.height * 0.8,
       width: size.width * 0.8,
       color: Colors.white,
+      child: PageView(
+        controller: _pageController,
+        onPageChanged: (value) {
+          for (var element in items) {
+            element.isSelected = false;
+          }
+          setState(() {
+            items[value].isSelected = true;
+          });
+        },
+        scrollDirection: Axis.vertical,
+        children: const [
+          MenCategory(),
+          woMenCategory(),
+          shoesCategory(),
+          bagsCategory(),
+          electronicCategory(),
+          AccessoriesCategory(),
+          homeGardenCategory(),
+          kidsCategory(),
+          BeautyCategory(),
+        ],
+      ),
     );
   }
 }
