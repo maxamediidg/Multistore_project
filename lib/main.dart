@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main_Screens/customer_home.dart';
+import 'package:multistore/main_Screens/supplier_home.dart';
 
 void main() {
   runApp(const myApp());
@@ -12,7 +12,7 @@ class myApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CustomerHomeScreen(),
+      home: SupplierHomeScreen(),
     );
   }
 }
