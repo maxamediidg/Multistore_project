@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multistore/Dashboard_components/My_store.dart';
 import 'package:multistore/widgets/Appbar_widgets.dart';
 
 List<String> label = [
@@ -31,7 +32,9 @@ class DashboardScreen extends StatelessWidget {
         title: const AppbarTitle(title: 'Dashboard'),
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/welcome_Screen');
+              },
               icon: const Icon(Icons.logout, color: Colors.black))
         ],
       ),
@@ -42,28 +45,37 @@ class DashboardScreen extends StatelessWidget {
             crossAxisSpacing: 50,
             crossAxisCount: 2,
             children: List.generate(6, (index) {
-              return Card(
-                  elevation: 20,
-                  shadowColor: Colors.purpleAccent.shade200,
-                  color: Colors.blueGrey.withOpacity(0.7),
-                  child: Column(
-                    children: [
-                      Icon(
-                        icons[index],
-                        size: 50,
-                        color: Colors.yellowAccent,
-                      ),
-                      Text(
-                        label[index].toUpperCase(),
-                        style: const TextStyle(
-                            fontSize: 24,
-                            color: Colors.yellowAccent,
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: 2,
-                            fontFamily: 'Acme'),
-                      )
-                    ],
-                  ));
+              return InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MyStore(),
+                      ));
+                },
+                child: Card(
+                    elevation: 20,
+                    shadowColor: Colors.purpleAccent.shade200,
+                    color: Colors.blueGrey.withOpacity(0.7),
+                    child: Column(
+                      children: [
+                        Icon(
+                          icons[index],
+                          size: 50,
+                          color: Colors.yellowAccent,
+                        ),
+                        Text(
+                          label[index].toUpperCase(),
+                          style: const TextStyle(
+                              fontSize: 24,
+                              color: Colors.yellowAccent,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 2,
+                              fontFamily: 'Acme'),
+                        )
+                      ],
+                    )),
+              );
             })),
       ),
     );

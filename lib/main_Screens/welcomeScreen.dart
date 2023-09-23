@@ -147,7 +147,10 @@ class _welcomeScreenState extends State<welcomeScreen>
                                     AnimatedLogo(controller: _controller),
                                     yellowButton(
                                         label: 'Log In',
-                                        onpressed: () {},
+                                        onpressed: () {
+                                          Navigator.pushReplacementNamed(
+                                              context, '/Supplier_home');
+                                        },
                                         width: 0.25),
                                     Padding(
                                       padding: const EdgeInsets.only(right: 8),
@@ -179,7 +182,12 @@ class _welcomeScreenState extends State<welcomeScreen>
                         Padding(
                           padding: const EdgeInsets.only(left: 8),
                           child: yellowButton(
-                              label: 'Log In', onpressed: () {}, width: 0.25),
+                              label: 'Log In',
+                              onpressed: () {
+                                Navigator.pushReplacementNamed(
+                                    context, '/Customer_home');
+                              },
+                              width: 0.25),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(right: 8),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:multistore/main_Screens/customer_home.dart';
+import 'package:multistore/main_Screens/supplier_home.dart';
 import 'main_Screens/welcomeScreen.dart';
 
 void main() {
@@ -11,9 +12,15 @@ class myApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: welcomeScreen(),
+      // home: welcomeScreen(),
+      initialRoute: '/welcome_Screen',
+      routes: {
+        '/welcome_Screen': (context) => const welcomeScreen(),
+        '/Customer_home': (context) => const CustomerHomeScreen(),
+        '/Supplier_home': (context) => const SupplierHomeScreen(),
+      },
     );
   }
 }
