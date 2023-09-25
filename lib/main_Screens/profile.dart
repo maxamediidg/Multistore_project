@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:multistore/Customer_Screen/Customer_orders.dart';
+import 'package:multistore/Customer_Screen/Wishlist.dart';
+import 'package:multistore/main_Screens/cart.dart';
+import 'package:multistore/widgets/Appbar_widgets.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -93,7 +97,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   style: TextStyle(
                                       color: Colors.yellow, fontSize: 20),
                                 ))),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const CartScreen(
+                                            back: AppbarBackButton(),
+                                          )));
+                            },
                           ),
                         ),
                         Container(
@@ -108,7 +119,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   style: TextStyle(
                                       color: Colors.black54, fontSize: 20),
                                 ))),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const CustomerOrders()));
+                            },
                           ),
                         ),
                         Container(
@@ -127,7 +144,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   style: TextStyle(
                                       color: Colors.yellow, fontSize: 20),
                                 ))),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const WishlistScreen()));
+                            },
                           ),
                         ),
                       ],

@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:multistore/Dashboard_components/Edit_Bussiness.dart';
 import 'package:multistore/Dashboard_components/My_store.dart';
+import 'package:multistore/Dashboard_components/Supplied_Balance.dart';
+import 'package:multistore/Dashboard_components/Supplier_Statics.dart';
+import 'package:multistore/Dashboard_components/manage_product.dart';
+import 'package:multistore/Dashboard_components/supplier_order.dart';
 import 'package:multistore/widgets/Appbar_widgets.dart';
 
 List<String> label = [
@@ -18,6 +23,15 @@ List<IconData> icons = [
   Icons.settings,
   Icons.attach_money,
   Icons.show_chart,
+];
+
+List<Widget> pages = const [
+  MyStore(),
+  SupplierOders(),
+  EditBussiness(),
+  Manage_products(),
+  BalanceScreen(),
+  StaticScreen(),
 ];
 
 class DashboardScreen extends StatelessWidget {
@@ -50,7 +64,7 @@ class DashboardScreen extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MyStore(),
+                        builder: (context) => pages[index],
                       ));
                 },
                 child: Card(
