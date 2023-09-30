@@ -156,7 +156,10 @@ class _welcomeScreenState extends State<welcomeScreen>
                                       padding: const EdgeInsets.only(right: 8),
                                       child: yellowButton(
                                           label: 'Sign Up',
-                                          onpressed: () {},
+                                          onpressed: () {
+                                            Navigator.pushReplacementNamed(
+                                                context, '/customer_signup');
+                                          },
                                           width: 0.25),
                                     )
                                   ],
